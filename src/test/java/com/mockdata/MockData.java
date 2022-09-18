@@ -50,12 +50,12 @@ public class MockData {
         gson.toJson(cars, new FileWriter("src\\main\\resources\\output.json"));
     }
 
-    public static void setCars2(List<Car> cars) throws IOException {
+    public static void setCars2(List<Car> cars, String fileName) throws IOException {
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
                 .create();
 
-        Writer writer = Files.newBufferedWriter(Paths.get("src\\main\\resources\\output.json"));
+        Writer writer = Files.newBufferedWriter(Paths.get("src\\main\\resources\\"+fileName));
 
         gson.toJson(cars, writer);
         writer.close();
